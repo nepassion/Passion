@@ -1,0 +1,54 @@
+spring: 
+  profiles:
+    active: dev
+  datasource: 
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo-security
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Chongqing
+  mvc: 
+    throw-exception-if-no-handler-found: true
+  resources: 
+    add-mappings: false
+  jpa:
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    hibernate: 
+      ddl-auto: update
+    
+server: 
+  port: 8080
+    
+---
+spring: 
+  profiles: dev
+  jpa:
+    show-sql: true
+  datasource: 
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo-security
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Chongqing
+
+logging: 
+  level:
+    org.springfromework.web: debug  
+    com.passion.dao: debug
+    
+server: 
+  port: 8070
+
+
+---
+spring: 
+  profiles: test
+    
+server: 
+  port: 8083
